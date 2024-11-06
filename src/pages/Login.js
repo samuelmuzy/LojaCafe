@@ -14,7 +14,8 @@ export const Login = () =>{
 
     const autenticar = (event) =>{
         event.preventDefault();
-        axios.post('http://localhost:3003/clientes/login',form)
+        
+          axios.post('http://localhost:3003/clientes/login',form)
         .then((response)=>{
             localStorage.setItem("token",response.data.token); //Salva o token no local storage se o body 
             navigate("/produtos");
@@ -45,6 +46,7 @@ export const Login = () =>{
                 
                 <p onClick={navegarCadastro}>Não tem uma Conta?</p>
                 <p>{error}</p>
+                
             </Formulario>
             <DivImagem imagem={imagem}></DivImagem>
             

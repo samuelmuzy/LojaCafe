@@ -9,6 +9,7 @@ import imagemCafe from '../assets/coffee-shop-cafe-latte-cappuccino-newspaper-co
 export const Cadastro = () =>{
     
     const [form,onChange,resetForm] = useForm({nome:"",email:"",senha:"",telefone:""});
+
     const [erro,setError] = useState("");
     const [sucesso,setSucesso] = useState("");
     
@@ -21,6 +22,7 @@ export const Cadastro = () =>{
 
     const Cadastro = (event) =>{ 
         event.preventDefault();
+        
         axios.post("http://localhost:3003/clientes",form)
         .then((response)=>{
             setSucesso(response.data)
@@ -28,7 +30,7 @@ export const Cadastro = () =>{
             resetForm()
         })
         .catch((error)=>{
-            setError(error.response.data);
+            setError(error.response?.data || "Nenhum dado na resposta");
         })
         
     }

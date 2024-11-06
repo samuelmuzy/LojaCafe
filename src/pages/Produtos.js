@@ -1,31 +1,25 @@
 import { useProdutos } from "../hooks/useProdutos"
-import {React} from 'react'
-
+import {React, useState} from 'react'
 import { Loading } from "../components/Loading"
-import axios from "axios";
 import { useProtectedPage } from "../hooks/useVerificarToken";
+import { ModalExcluir } from "../components/ModalExcluir";
 
 export const Produtos = () =>{
     
     const [protutos,setData,isLoading,error] = useProdutos('http://localhost:3003/clientes');
-
-    const token = localStorage.getItem("token");
-
-    const deletarUsuario = (id) =>{
-        axios.delete(`http://localhost:3003/clientes/${id}`,{
-            headers:{
-                Authorization:token
-            }
-        })
-        .then((response)=>{
-            console.log(response.data);
-            removerItem(id);
-        })
-        .catch((error)=>{
-            console.log(error.response.data);
-        })
-    }
     
+    const [abrirModal,setAbrirModal] = useState(false);
+    const [idModal,setIdModal] = useState("");
+
+    const abrir = (id) =>{
+        setAbrirModal(true);
+        setIdModal(id);
+    }
+
+    const fecharModal = () =>{
+        setAbrirModal(false);
+        setIdModal("");
+    }
 
     const removerItem = (id) =>{
         setData(
@@ -43,11 +37,13 @@ export const Produtos = () =>{
                 <p>{prod.dfnome_cliente}</p>
                 <p>{prod.dfemail_cliente}</p>
                 <p>{prod.dftelefone_cliente}</p>
-                <button onClick={() => deletarUsuario(prod.dfid_cliente)}>Deletar</button>
+                <button onClick={() => abrir(prod.dfid_cliente)}>Deletar</button>
             </div>
         )
     })
-    useProtectedPage();
+    
+    useProtectedPage(); //Verifica quando o token e expirado e redireciona a pagina de login 
+
     return(
         <>
             {isLoading &&  
@@ -56,11 +52,12 @@ export const Produtos = () =>{
             
             {!isLoading && error && <p>{error}</p>}
             
-            {!isLoading && protutos &&
-                listar
+            {!isLoading && protutos && 
+                 listar
+                 
             }
             
-
+            <ModalExcluir deletar={() => removerItem(idModal)} onClickFecharModal={fecharModal} modalEstado={abrirModal} id={idModal} />
         </>
     )    
 }
