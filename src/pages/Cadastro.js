@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Div, DivImagemCadastro, Formulario,Input } from "../styles/FormLogin";
 import imagemCafe from '../assets/coffee-shop-cafe-latte-cappuccino-newspaper-concept.jpg'
-import imagem from '../assets/woman-drinking-hot-chocolate-cafe_batcheditor_fotor.jpg'
+
 
 export const Cadastro = () =>{
     

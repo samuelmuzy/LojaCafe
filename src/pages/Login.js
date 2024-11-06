@@ -33,11 +33,11 @@ export const Login = () =>{
             
             <Formulario onSubmit={autenticar}>
                 <h1>Acesse sua conta</h1>
-                <>
-                    <p>Email</p>
-                    <Input name="email" type="text" value={form.email} onChange={onChange} placeholder="Email"/>
                 
-                </>
+                    
+                <Input name="email" type="text" value={form.email} onChange={onChange} placeholder="Email"/>
+                
+                
                 <Input name="senha" type="password" value={form.senha} onChange={onChange} placeholder="Senha"/>
                 
                 
