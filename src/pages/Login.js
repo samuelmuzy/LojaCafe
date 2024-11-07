@@ -15,7 +15,7 @@ export const Login = () =>{
     const autenticar = (event) =>{
         event.preventDefault();
         
-          axios.post('http://localhost:3003/clientes/login',form)
+        axios.post('http://localhost:3003/clientes/login',form)
         .then((response)=>{
             localStorage.setItem("token",response.data.token); //Salva o token no local storage se o body 
             navigate("/produtos");
@@ -34,13 +34,9 @@ export const Login = () =>{
             
             <Formulario onSubmit={autenticar}>
                 <h1>Acesse sua conta</h1>
-                
                     
                 <Input name="email" type="text" value={form.email} onChange={onChange} placeholder="Email"/>
-                
-                
                 <Input name="senha" type="password" value={form.senha} onChange={onChange} placeholder="Senha"/>
-                
                 
                 <Input type="submit" value='Logar'/>
                 

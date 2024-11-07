@@ -39,9 +39,9 @@ export const Cadastro = () =>{
         <Div>
         
             <Formulario onSubmit={Cadastro}>
-                <h1>Cadastrace</h1>
-                <Input value={form.nome} onChange={onChange} name="nome" placeholder="Nome"/>
-                <Input value={form.email} onChange={onChange} name="email" placeholder="email"/>
+                <h1>Cadastro</h1>
+                <Input value={form.nome} type="text" onChange={onChange} name="nome" placeholder="Nome"/>
+                <Input value={form.email} type="email" onChange={onChange} name="email" placeholder="email"/>
                 <Input value={form.senha} onChange={onChange} name="senha" placeholder="senha"/>
                 <Input value={form.telefone} onChange={onChange} name="telefone" placeholder="telefone"/>
                 <Input type="submit" value='Cadastrace'/>
