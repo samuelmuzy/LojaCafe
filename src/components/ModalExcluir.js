@@ -29,6 +29,7 @@ export const ModalExcluir = (props) => {
                 {modalEstado ? 
                     <ModalS>
                         <DivModal>
+                            <p>Tem certeza em deletar usuário</p>
                             <button onClick={onClickFecharModal}>Fechar</button>
                             <button onClick={deletarUsuario}>Sim</button>
                             
