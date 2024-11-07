@@ -33,8 +33,6 @@ export const DivModal = styled.div`
     padding: 5% 10% 10% 10%;
     background-color: #fff;
     border-radius:30px;
-    overflow: hidden;
-    overflow-y: scroll;
     max-width: 40%;
     max-height: 40vh;
 `

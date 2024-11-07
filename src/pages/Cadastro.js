@@ -1,17 +1,17 @@
 import { useForm } from "../hooks/useForm"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import {Loading} from '../components/Loading'
 import { Div, DivImagemCadastro, Formulario,Input } from "../styles/FormLogin";
 import imagemCafe from '../assets/coffee-shop-cafe-latte-cappuccino-newspaper-concept.jpg'
+import { useCadastrar } from "../hooks/useCadastrar";
 
 
 export const Cadastro = () =>{
     
     const [form,onChange,resetForm] = useForm({nome:"",email:"",senha:"",telefone:""});
 
-    const [erro,setError] = useState("");
-    const [sucesso,setSucesso] = useState("");
+    const [cadastrar, isLoading, error, sucesso] = useCadastrar()
     
 
     const navigate = useNavigate();
@@ -22,17 +22,7 @@ export const Cadastro = () =>{
 
     const Cadastro = (event) =>{ 
         event.preventDefault();
-        
-        axios.post("http://localhost:3003/clientes",form)
-        .then((response)=>{
-            setSucesso(response.data)
-            setError("");
-            resetForm()
-        })
-        .catch((error)=>{
-            setError(error.response?.data || "Nenhum dado na resposta");
-        })
-        
+        cadastrar(form,resetForm)
     }
 
     return(
@@ -46,9 +36,16 @@ export const Cadastro = () =>{
                 <Input value={form.telefone} onChange={onChange} name="telefone" placeholder="telefone"/>
                 <Input type="submit" value='Cadastrace'/>
 
-                <p onClick={navegarLogin}>Já tenho uma conta</p>
-                <p>{erro}</p>
-                <p>{sucesso}</p>
+                {!isLoading && 
+                    <>
+                        <p onClick={navegarLogin}>Já tenho uma conta</p>
+                        <p>{error}</p>
+                        <p>{sucesso}</p>
+                    </>
+                }
+                {isLoading && 
+                    <Loading></Loading>
+                }
             </Formulario>
 
             <DivImagemCadastro imagem={imagemCafe}></DivImagemCadastro>
