@@ -10,6 +10,7 @@ export const useProtectedPage = () => {
     
         if (!token) {
             navigate("/");
+            return
         }
     
         const decodedToken = JSON.parse(atob(token.split(".")[1]));

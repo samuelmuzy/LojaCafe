@@ -21,11 +21,11 @@ export const Produtos = () =>{
         setIdModal("");
     }
 
-    const removerItem = (id) =>{
+    const removerItem = () =>{
         setData(
             protutos.filter((prod) => 
                 { 
-                    return prod.dfid_cliente !== id 
+                    return prod.dfid_cliente !== idModal 
                 })
         ) 
             /*altera o array produtos para que possa se remover o Cliente sem atualizar a pagina*/
@@ -53,11 +53,10 @@ export const Produtos = () =>{
             {!isLoading && error && <p>{error}</p>}
             
             {!isLoading && protutos && 
-                 listar
-                 
+                listar
             }
             
-            <ModalExcluir deletar={() => removerItem(idModal)} onClickFecharModal={fecharModal} modalEstado={abrirModal} id={idModal} />
+            <ModalExcluir deletar={() => removerItem()} onClickFecharModal={fecharModal} modalEstado={abrirModal} id={idModal} />
         </>
     )    
 }
