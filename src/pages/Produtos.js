@@ -1,35 +1,46 @@
 import { useProdutos } from "../hooks/useProdutos"
-import {React, useState} from 'react'
+import {React, useEffect, useState} from 'react'
 import { Loading } from "../components/Loading"
+import {buscarProdutos} from '../service/VerificarProdutos'
 import { useProtectedPage } from "../hooks/useVerificarToken";
 import { ModalExcluir } from "../components/ModalExcluir";
+import { ModalAlterar } from "../components/ModalAlterar";
 
 export const Produtos = () =>{
     
-    const [protutos,setData,isLoading,error] = useProdutos('http://localhost:3003/clientes');
+    const [protutos,setProdutos,isLoading,error] = useProdutos('http://localhost:3003/clientes');
     
-    const [abrirModal,setAbrirModal] = useState(false);
+    const [modalExcluir,setModalExcluir] = useState(false);
+    const [modalAlterar,setModalAlterar] = useState(false);
     const [idModal,setIdModal] = useState("");
 
-    const abrir = (id) =>{
-        setAbrirModal(true);
+    const abrirModalExcluir = (id) =>{
+        setModalExcluir(true);
         setIdModal(id);
     }
 
-    const fecharModal = () =>{
-        setAbrirModal(false);
+    const fecharModalExcluir = () =>{
+        setModalExcluir(false);
         setIdModal("");
     }
 
-    const removerItem = () =>{
-        setData(
-            protutos.filter((prod) => 
-                { 
-                    return prod.dfid_cliente !== idModal 
-                })
-        ) 
-            /*altera o array produtos para que possa se remover o Cliente sem atualizar a pagina*/
+    const abrirModalAlterar = (id) =>{
+        setModalAlterar(true);
+        setIdModal(id);
     }
+
+    const fecharModalAlterar = () =>{
+        setModalAlterar(false);
+        setIdModal("");
+    }
+
+    useEffect(() => {
+        if (!modalAlterar || modalExcluir) {
+            buscarProdutos(setProdutos); // Atualiza os produtos quando o modal de alterar é fechado
+        }
+    }, [modalAlterar,modalExcluir]);
+    
+
 
     const listar = protutos.map((prod)=>{
         return(
@@ -37,7 +48,8 @@ export const Produtos = () =>{
                 <p>{prod.dfnome_cliente}</p>
                 <p>{prod.dfemail_cliente}</p>
                 <p>{prod.dftelefone_cliente}</p>
-                <button onClick={() => abrir(prod.dfid_cliente)}>Deletar</button>
+                <button onClick={() => abrirModalExcluir(prod.dfid_cliente)}>Deletar</button>
+                <button onClick={() => abrirModalAlterar(prod.dfid_cliente)}>alterar</button>
             </div>
         )
     })
@@ -55,8 +67,8 @@ export const Produtos = () =>{
             {!isLoading && protutos && 
                 listar
             }
-            
-            <ModalExcluir deletar={() => removerItem()} onClickFecharModal={fecharModal} modalEstado={abrirModal} id={idModal} />
+            <ModalAlterar onClickFecharModal={fecharModalAlterar} modalEstado={modalAlterar} id={idModal} />
+            <ModalExcluir onClickFecharModal={fecharModalExcluir} modalEstado={modalExcluir} id={idModal}/>
         </>
     )    
 }

@@ -5,7 +5,7 @@ import { ModalS,DivModal } from "../styles/Modal";
 
 export const ModalExcluir = (props) => {
 
-        const { modalEstado, id , onClickFecharModal, deletar } = props;
+        const { modalEstado, id , onClickFecharModal} = props;
         //Recebe um estado por meio do Componente Postagem assim abrindo o modal quando for verdadeiro
         const token = localStorage.getItem("token");
 
@@ -17,12 +17,13 @@ export const ModalExcluir = (props) => {
             })
             .then((response)=>{
                 console.log(response.data);
-                deletar()
+                onClickFecharModal()
+                
             })
             .catch((error)=>{
                 console.log(error.response.data);
             })
-            onClickFecharModal()
+            
         }
         return (
             <div>

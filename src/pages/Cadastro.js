@@ -34,7 +34,7 @@ export const Cadastro = () =>{
                 <Input value={form.email} type="email" onChange={onChange} name="email" placeholder="email"/>
                 <Input value={form.senha} onChange={onChange} name="senha" placeholder="senha"/>
                 <Input value={form.telefone} onChange={onChange} name="telefone" placeholder="telefone"/>
-                <Input type="submit" value='Cadastrace'/>
+                <Input type="submit" value='Cadastrar-se'/>
 
                 {!isLoading && 
                     <>
