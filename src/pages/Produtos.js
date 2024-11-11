@@ -5,6 +5,8 @@ import {buscarProdutos} from '../service/VerificarProdutos'
 import { useProtectedPage } from "../hooks/useVerificarToken";
 import { ModalExcluir } from "../components/ModalExcluir";
 import { ModalAlterar } from "../components/ModalAlterar";
+import { useNavigate } from "react-router-dom";
+import {jwtDecode} from 'jwt-decode';
 
 export const Produtos = () =>{
     
@@ -49,13 +51,18 @@ export const Produtos = () =>{
                 <p>{prod.dfemail_cliente}</p>
                 <p>{prod.dftelefone_cliente}</p>
                 <button onClick={() => abrirModalExcluir(prod.dfid_cliente)}>Deletar</button>
-                <button onClick={() => abrirModalAlterar(prod.dfid_cliente)}>alterar</button>
+                <button onClick={() => abrirModalAlterar(prod.dfid_cliente)}>Alterar</button>
             </div>
         )
     })
     
     useProtectedPage(); //Verifica quando o token e expirado e redireciona a pagina de login 
 
+    const navigate = useNavigate()
+
+    const navegarPerfil = () =>{
+        navigate("/perfil")
+    }
     return(
         <>
             {isLoading &&  
@@ -67,6 +74,8 @@ export const Produtos = () =>{
             {!isLoading && protutos && 
                 listar
             }
+
+            <button onClick={navegarPerfil}>Perfil</button>
             <ModalAlterar onClickFecharModal={fecharModalAlterar} modalEstado={modalAlterar} id={idModal} />
             <ModalExcluir onClickFecharModal={fecharModalExcluir} modalEstado={modalExcluir} id={idModal}/>
         </>
