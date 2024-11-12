@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { ModalS,DivModal } from "../styles/Modal";
+import { ModalS,DivModal, ButtonModal } from "../styles/Modal";
 
 
 export const ModalExcluir = (props) => {
@@ -31,8 +31,8 @@ export const ModalExcluir = (props) => {
                     <ModalS>
                         <DivModal>
                             <p>Tem certeza em deletar usuário</p>
-                            <button onClick={onClickFecharModal}>Fechar</button>
-                            <button onClick={deletarUsuario}>Sim</button>
+                            <ButtonModal onClick={onClickFecharModal}>Fechar</ButtonModal>
+                            <ButtonModal onClick={deletarUsuario}>Sim</ButtonModal>
                             
                         </DivModal>
                     </ModalS>

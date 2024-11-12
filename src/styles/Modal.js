@@ -1,20 +1,5 @@
 import styled from 'styled-components';
 
-export const modal = styled.div `
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-`
-
-export const A = styled.button `
-    margin-bottom: 10px;
-    background-color: white;
-    border: none;
-    text-decoration-line: blue;
-`
-
 export const ModalS = styled.div`
     position: fixed;
     top: 0;
@@ -23,16 +8,28 @@ export const ModalS = styled.div`
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    
+`
+export const InputModal = styled.input`
+    width: 100%;
+    padding: 3% 0 3% 0;
+    margin: 5% 0 5% 0;
 `
 export const DivModal = styled.div`
     position: fixed;
     top: 50%;
     left: 50%;
+    display: flex;
+    flex-direction: column;
     transform: translate(-50%,-50%);
-    padding: 5% 10% 10% 10%;
+    padding: 5%;
     background-color: #fff;
     border-radius:30px;
-    max-width: 40%;
+    max-width: 50%;
     max-height: 40vh;
+`
+export const ButtonModal = styled.button`
+    width: 100%;
+    padding: 3%;
+    margin-top: 2%;
+
 `

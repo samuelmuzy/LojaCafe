@@ -6,7 +6,7 @@ import { useProtectedPage } from "../hooks/useVerificarToken";
 import { ModalExcluir } from "../components/ModalExcluir";
 import { ModalAlterar } from "../components/ModalAlterar";
 import { useNavigate } from "react-router-dom";
-import {jwtDecode} from 'jwt-decode';
+import { useGetToken } from "../hooks/useGetToken";
 
 export const Produtos = () =>{
     
@@ -15,6 +15,8 @@ export const Produtos = () =>{
     const [modalExcluir,setModalExcluir] = useState(false);
     const [modalAlterar,setModalAlterar] = useState(false);
     const [idModal,setIdModal] = useState("");
+
+    const [id,role] = useGetToken();
 
     const abrirModalExcluir = (id) =>{
         setModalExcluir(true);
@@ -50,8 +52,13 @@ export const Produtos = () =>{
                 <p>{prod.dfnome_cliente}</p>
                 <p>{prod.dfemail_cliente}</p>
                 <p>{prod.dftelefone_cliente}</p>
-                <button onClick={() => abrirModalExcluir(prod.dfid_cliente)}>Deletar</button>
-                <button onClick={() => abrirModalAlterar(prod.dfid_cliente)}>Alterar</button>
+                <p>{prod.dfuser_role}</p>
+                {role === "ADMIN" &&
+                    <>
+                        <button onClick={() => abrirModalExcluir(prod.dfid_cliente)}>Deletar</button>
+                        <button onClick={() => abrirModalAlterar(prod.dfid_cliente)}>Alterar</button>
+                    </>
+                }
             </div>
         )
     })

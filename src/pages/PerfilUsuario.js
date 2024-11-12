@@ -1,24 +1,17 @@
-import { jwtDecode } from "jwt-decode";
 import { useProdutos } from "../hooks/useProdutos";
 import { Loading } from "../components/Loading";
+import { useGetToken } from "../hooks/useGetToken";
+import { useProtectedPage } from "../hooks/useVerificarToken";
 
 export const PerfilUsuario = () =>{
 
     const token = localStorage.getItem("token");
-    
-    const getUserIdFromToken = (token) => {
-        try {
-            const decodedToken = jwtDecode(token);
-            return [decodedToken.id,decodedToken.role]; // Altere 'userId' para a chave correta dentro do seu payload
-        } catch (error) {
-            console.error("Erro ao decodificar o token:", error);
-            return null;
-        }
-    };
 
-    const [id,role] =  getUserIdFromToken(token);
+    const [id,role] = useGetToken(token);
     
     const [protutos,setProdutos,isLoading,error] = useProdutos(`http://localhost:3003/clientes/buscar/${id}`);
+
+    useProtectedPage();
     
     const listar = protutos.map((prod)=>{
         return(
@@ -39,10 +32,10 @@ export const PerfilUsuario = () =>{
             {!isLoading && 
                 listar
             }
-            {role == 'USER' &&
+            {role === 'USER' &&
                 <p>ola</p>
             }
-            {role == 'ADMIN' &&
+            {role === 'ADMIN' &&
                 <p>chefe</p>
             }
             
