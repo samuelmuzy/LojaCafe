@@ -13,10 +13,11 @@ export function useProdutos(url){
         .then((Response)=>{
             setData(Response.data);
             setIsLoading(false);
+            setError("")
         })
-        .catch((erro)=>{
+        .catch((error)=>{
             setIsLoading(false);
-            setError(erro)
+            setError(error.response?.data || "Nenhum dado na resposta")
         })
     }
     

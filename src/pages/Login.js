@@ -1,15 +1,16 @@
-import { useState} from "react";
+import { useState ,useEffect} from "react";
 import { useNavegar } from "../hooks/useNavegar";
 import { useForm } from "../hooks/useForm";
 import { Formulario,Div,Input,DivImagem} from "../styles/FormLogin";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 
+
 export const Login = () =>{
     
     const [form,onChange] = useForm({email:"",senha:""});
     const [error,setError] = useState("");
-    const {NavegarLogin,NavegarCadastro} = useNavegar();
+    const {NavegarCadastro} = useNavegar();
 
     const navigate = useNavigate();
 
@@ -24,8 +25,15 @@ export const Login = () =>{
             .catch((error) => {
                 setError(error.response?.data || "Erro na resposta");
             });
-    
     }
+    useEffect(()=>{
+        const token = localStorage.getItem("token")
+        
+        if(token){
+            localStorage.removeItem("token");
+        }
+        
+    },[])
 
     return(
         <Div>

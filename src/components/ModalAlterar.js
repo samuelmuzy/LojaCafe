@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useForm } from "../hooks/useForm";
-import { ModalS,DivModal,InputModal, ButtonModal } from "../styles/Modal";
+import { ModalS,DivModal,InputModal, ButtonModal, DivButtons } from "../styles/Modal";
 export const ModalAlterar = (props) =>{
     
     const { modalEstado, id , onClickFecharModal } = props;
@@ -29,13 +29,15 @@ export const ModalAlterar = (props) =>{
             {modalEstado ? 
                 <ModalS>
                     <DivModal>
-                        <p>Editar usuário</p>
+                        <h2>Editar usuário</h2>
                         <InputModal placeholder="Nome" value={form.nome} onChange={onChange} name="nome"/>
                         <InputModal placeholder="Email" value={form.email} onChange={onChange} name="email"/>
                         <InputModal placeholder="telefone" value={form.telefone} onChange={onChange} name="telefone"/>
-
-                        <ButtonModal onClick={onClickFecharModal}>Fechar</ButtonModal>
-                        <ButtonModal onClick={alterarUsuario}>Salvar</ButtonModal>
+                        <DivButtons>
+                            <ButtonModal onClick={onClickFecharModal}>Fechar</ButtonModal>
+                            <ButtonModal onClick={alterarUsuario}>Salvar</ButtonModal>
+                        </DivButtons>
+                        
                         
                     </DivModal>
                 </ModalS>

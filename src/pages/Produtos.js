@@ -7,15 +7,20 @@ import { ModalExcluir } from "../components/ModalExcluir";
 import { ModalAlterar } from "../components/ModalAlterar";
 import { useNavegar } from "../hooks/useNavegar";
 import { useGetToken } from "../hooks/useGetToken";
+import { useForm } from "../hooks/useForm";
 
 export const Produtos = () =>{
+
+    const [form, onChange, resetForm] = useForm({nome: ""});
     
-    const [protutos,setProdutos,isLoading,error] = useProdutos('http://localhost:3003/clientes');
+    const [protutos,setProdutos,isLoading,error] = useProdutos(`http://localhost:3003/clientes?nome=${form.nome}`);
     const {NavegarPerfilUsuario} = useNavegar()
     
     const [modalExcluir,setModalExcluir] = useState(false);
     const [modalAlterar,setModalAlterar] = useState(false);
     const [idModal,setIdModal] = useState("");
+
+    
 
     const [id,role] = useGetToken();
 
@@ -68,13 +73,15 @@ export const Produtos = () =>{
 
     return(
         <>
+            <input placeholder="Digite um nome" type="search" onChange={onChange} name="nome" value={form.nome}></input>
+
             {isLoading &&  
                 <Loading/>
             }
             
             {!isLoading && error && <p>{error}</p>}
             
-            {!isLoading && protutos && 
+            {!isLoading && protutos && !error &&
                 listar
             }
 

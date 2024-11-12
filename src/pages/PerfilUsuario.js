@@ -2,16 +2,20 @@ import { useProdutos } from "../hooks/useProdutos";
 import { Loading } from "../components/Loading";
 import { useGetToken } from "../hooks/useGetToken";
 import { useProtectedPage } from "../hooks/useVerificarToken";
+import { buscarProdutos } from "../service/VerificarProdutos";
+import { useNavigate } from "react-router-dom";
 
 export const PerfilUsuario = () =>{
 
     const token = localStorage.getItem("token");
 
+    const navigate = useNavigate();
+
     const [id,role] = useGetToken(token);
     
     const [protutos,setProdutos,isLoading,error] = useProdutos(`http://localhost:3003/clientes/buscar/${id}`);
 
-    useProtectedPage();
+    
     
     const listar = protutos.map((prod)=>{
         return(
@@ -24,20 +28,33 @@ export const PerfilUsuario = () =>{
         )
     })
 
+    const deslogar = () =>{
+        localStorage.removeItem("token")
+        window.location.reload();
+    }
+
+    const navegarLogin = () =>{
+        navigate("/")
+    }
+
     return(
         <>
             {isLoading &&
                 <Loading></Loading>
             }
-            {!isLoading && 
-                listar
+            {!isLoading && role &&
+            <>
+                {listar}
+                <button onClick={deslogar}>deslogar</button>
+            </>
             }
-            {role === 'USER' &&
-                <p>ola</p>
+            {!role &&
+                <>
+                    <p>Logue em uma conta</p>
+                    <button onClick={navegarLogin}>Logar</button>
+                </>
             }
-            {role === 'ADMIN' &&
-                <p>chefe</p>
-            }
+            
             
         </>
     )
