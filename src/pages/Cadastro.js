@@ -1,8 +1,7 @@
 import { useForm } from "../hooks/useForm";
-import { useNavigate } from "react-router-dom";
 import { Loading } from "../components/Loading";
+import { useNavegar } from "../hooks/useNavegar";
 import { Div, DivImagemCadastro, Formulario, Input } from "../styles/FormLogin";
-import imagemCafe from '../assets/coffee-shop-cafe-latte-cappuccino-newspaper-concept.jpg';
 import { useCadastrar } from "../hooks/useCadastrar";
 
 export const Cadastro = () => {
@@ -12,13 +11,8 @@ export const Cadastro = () => {
         senha: "",
         telefone: ""
     });
-
+    const {NavegarLogin} = useNavegar();
     const [cadastrar, isLoading, error, sucesso] = useCadastrar();
-    const navigate = useNavigate();
-
-    const navegarLogin = () => {
-        navigate("/");
-    };
 
     const Cadastro = (event) => { 
         event.preventDefault();
@@ -76,7 +70,7 @@ export const Cadastro = () => {
                 
                 {!isLoading && (
                     <>
-                        <p onClick={navegarLogin}>Já tenho uma conta</p>
+                        <p onClick={NavegarLogin}>Já tenho uma conta</p>
                         <p>{error}</p>
                         <p>{sucesso}</p>
                     </>
@@ -84,7 +78,7 @@ export const Cadastro = () => {
                 {isLoading && <Loading />}
             </Formulario>
 
-            <DivImagemCadastro imagem={imagemCafe}></DivImagemCadastro>
+            <DivImagemCadastro></DivImagemCadastro>
         </Div>
     );
 };

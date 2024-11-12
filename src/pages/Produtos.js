@@ -5,12 +5,13 @@ import {buscarProdutos} from '../service/VerificarProdutos'
 import { useProtectedPage } from "../hooks/useVerificarToken";
 import { ModalExcluir } from "../components/ModalExcluir";
 import { ModalAlterar } from "../components/ModalAlterar";
-import { useNavigate } from "react-router-dom";
+import { useNavegar } from "../hooks/useNavegar";
 import { useGetToken } from "../hooks/useGetToken";
 
 export const Produtos = () =>{
     
     const [protutos,setProdutos,isLoading,error] = useProdutos('http://localhost:3003/clientes');
+    const {NavegarPerfilUsuario} = useNavegar()
     
     const [modalExcluir,setModalExcluir] = useState(false);
     const [modalAlterar,setModalAlterar] = useState(false);
@@ -65,11 +66,6 @@ export const Produtos = () =>{
     
     useProtectedPage(); //Verifica quando o token e expirado e redireciona a pagina de login 
 
-    const navigate = useNavigate()
-
-    const navegarPerfil = () =>{
-        navigate("/perfil")
-    }
     return(
         <>
             {isLoading &&  
@@ -82,7 +78,7 @@ export const Produtos = () =>{
                 listar
             }
 
-            <button onClick={navegarPerfil}>Perfil</button>
+            <button onClick={NavegarPerfilUsuario}>Perfil</button>
             <ModalAlterar onClickFecharModal={fecharModalAlterar} modalEstado={modalAlterar} id={idModal} />
             <ModalExcluir onClickFecharModal={fecharModalExcluir} modalEstado={modalExcluir} id={idModal}/>
         </>
