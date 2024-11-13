@@ -7,11 +7,11 @@ export const Formulario = styled.form`
     align-items: center;
     justify-content: center;
     padding: 6%;
-    gap:30px;
+    gap:20px;
     width: 55%;
     margin: 5%;
     text-align: center;
-    height: 50vh;
+    height: 60vh;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     @media (max-width: 767px) {
         background-image: none;
@@ -115,3 +115,45 @@ export const DivImagemCadastro = styled.div`
         height: 0;
     }
 `
+export const StyledWrapper = styled.div`
+    width: 95%;
+  button {
+    appearance: none;
+    background-color: transparent;
+    border: 0.125em solid #1A1A1A;
+    border-radius: 0.9375em;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%; /* Define a largura total para o botão */
+    outline: none;
+    padding: 1em 0; /* Ajuste o padding horizontal se necessário */
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+  }
+
+  button:disabled {
+    pointer-events: none;
+  }
+
+  button:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+
+  button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+`;
+

@@ -4,6 +4,7 @@ import { useNavegar } from "../hooks/useNavegar";
 import { Formulario, Input } from "../styles/FormLogin";
 import { useCadastrar } from "../hooks/useCadastrar";
 import { InputFormulario } from "./InputFormulario";
+import { ButtonForm } from "./ButtonForm";
 
 export const FormCadastro = () =>{
     
@@ -68,7 +69,7 @@ export const FormCadastro = () =>{
                     pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$" 
                     
                 />
-                <Input type="submit" value="Cadastrar-se" />
+                <ButtonForm texto={"cadastrar-se"} />
                 
                 {!isLoading && (
                     <>

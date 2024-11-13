@@ -13,7 +13,7 @@ export const Perfil = (props) =>{
                 <P>{props.cargo}</P>
             </DivItens>
                     
-            <ButtonPerfil onClick={props.deslogar}>deslogar</ButtonPerfil>
+            <ButtonPerfil onClick={props.deslogar}>Deslogar</ButtonPerfil>
         </DivPerfil>
         
     )

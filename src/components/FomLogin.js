@@ -6,6 +6,7 @@ import axios from 'axios'
 import { Input,Formulario } from "../styles/FormLogin";
 import { useNavigate } from "react-router-dom";
 import { Loading } from "./Loading";
+import { ButtonForm } from "./ButtonForm";
 
 export const FormLogin = () =>{
 
@@ -40,7 +41,7 @@ export const FormLogin = () =>{
                 <InputFormulario name={"senha"} texto={"Senha"} type={"password"} value={form.senha} onChange={onChange}/>
                
                 
-                <Input type="submit" value='Logar'/>
+                <ButtonForm texto={"Logar"}/>
 
                 {!isLoading && (
                     <>
