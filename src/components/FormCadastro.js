@@ -3,6 +3,7 @@ import { Loading } from "../components/Loading";
 import { useNavegar } from "../hooks/useNavegar";
 import { Formulario, Input } from "../styles/FormLogin";
 import { useCadastrar } from "../hooks/useCadastrar";
+import { InputFormulario } from "./InputFormulario";
 
 export const FormCadastro = () =>{
     
@@ -34,38 +35,38 @@ export const FormCadastro = () =>{
     return(
         <Formulario onSubmit={Cadastro}>
                 <h1>Cadastro</h1>
-                <Input
-                    value={form.nome}
-                    type="text"
-                    onChange={onChange}
-                    name="nome"
-                    placeholder="Nome"
-                    required
-                />
-                <Input
-                    value={form.email}
-                    type="email"
-                    onChange={onChange}
-                    name="email"
-                    placeholder="Email"
-                    required
-                />
-                <Input
-                    value={form.senha}
-                    type="password"
-                    onChange={onChange}
-                    name="senha"
-                    placeholder="Senha"
-                    required
-                />
-                <Input
-                    pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$"
+                <InputFormulario 
+                    name="nome" 
+                    texto="Nome" 
+                    type="text" 
+                    value={form.nome} 
+                    onChange={onChange} 
+                    
+                    />
+                <InputFormulario 
+                    name="email" 
+                    texto="Email" 
+                    type="email" 
+                    value={form.email} 
+                    onChange={onChange} 
+                    
+                    />
+                <InputFormulario 
+                    name="senha" 
+                    texto="Senha" 
+                    type="password" 
+                    value={form.senha} 
+                    onChange={onChange} 
+                    
+                    />
+                <InputFormulario 
+                    name="telefone" 
+                    texto="Telefone" 
                     type="tel" 
-                    value={form.telefone}
-                    onChange={handleTelefoneChange}
-                    name="telefone"
-                    placeholder="Telefone"
-                    required
+                    value={form.telefone} 
+                    onChange={handleTelefoneChange} 
+                    pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$" 
+                    
                 />
                 <Input type="submit" value="Cadastrar-se" />
                 

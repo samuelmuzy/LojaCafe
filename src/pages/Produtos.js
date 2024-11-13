@@ -8,6 +8,8 @@ import { ModalAlterar } from "../components/ModalAlterar";
 import { useNavegar } from "../hooks/useNavegar";
 import { useGetToken } from "../hooks/useGetToken";
 import { useForm } from "../hooks/useForm";
+import { DivButtons } from "../styles/Modal";
+import { ButtonAlterar } from "../styles/Usuarios";
 
 export const Produtos = () =>{
 
@@ -60,10 +62,10 @@ export const Produtos = () =>{
                 <p>{prod.dftelefone_cliente}</p>
                 <p>{prod.dfuser_role}</p>
                 {role === "ADMIN" &&
-                    <>
-                        <button onClick={() => abrirModalExcluir(prod.dfid_cliente)}>Deletar</button>
-                        <button onClick={() => abrirModalAlterar(prod.dfid_cliente)}>Alterar</button>
-                    </>
+                    <DivButtons>
+                        <ButtonAlterar onClick={() => abrirModalExcluir(prod.dfid_cliente)}>Deletar</ButtonAlterar>
+                        <ButtonAlterar onClick={() => abrirModalAlterar(prod.dfid_cliente)}>Alterar</ButtonAlterar>
+                    </DivButtons>
                 }
             </div>
         )
@@ -73,6 +75,7 @@ export const Produtos = () =>{
 
     return(
         <>
+            <button onClick={NavegarPerfilUsuario}>Perfil</button>
             <input placeholder="Digite um nome" type="search" onChange={onChange} name="nome" value={form.nome}></input>
 
             {isLoading &&  
@@ -85,7 +88,7 @@ export const Produtos = () =>{
                 listar
             }
 
-            <button onClick={NavegarPerfilUsuario}>Perfil</button>
+            
             <ModalAlterar onClickFecharModal={fecharModalAlterar} modalEstado={modalAlterar} id={idModal} />
             <ModalExcluir onClickFecharModal={fecharModalExcluir} modalEstado={modalExcluir} id={idModal}/>
         </>

@@ -2,6 +2,8 @@ import { useProdutos } from "../hooks/useProdutos";
 import { Loading } from "../components/Loading";
 import { useGetToken } from "../hooks/useGetToken";
 import { useNavigate } from "react-router-dom";
+import { ButtonPerfil, DivItens, DivMain, DivPerfil, P } from "../styles/CardDeUsuarios";
+import { Perfil } from "../components/Perfil";
 
 export const PerfilUsuario = () =>{
 
@@ -17,12 +19,14 @@ export const PerfilUsuario = () =>{
     
     const listar = protutos.map((prod)=>{
         return(
-            <div key={prod.dfid_cliente}>
-                <p>{prod.dfnome_cliente}</p>
-                <p>{prod.dfemail_cliente}</p>
-                <p>{prod.dftelefone_cliente}</p>
-                <p>{prod.dfuser_role}</p>
-            </div>
+            <Perfil
+                key={prod.dfid_cliente} 
+                nome={prod.dfnome_cliente}
+                email={prod.dfemail_cliente}
+                telefone={prod.dftelefone_cliente}
+                cargo={prod.dfuser_role}
+                deslogar={()=>deslogar()}
+            />
         )
     })
 
@@ -41,10 +45,11 @@ export const PerfilUsuario = () =>{
                 <Loading></Loading>
             }
             {!isLoading && role &&
-            <>
-                {listar}
-                <button onClick={deslogar}>deslogar</button>
-            </>
+                <DivMain>
+                    <h2>Meu perfil</h2>
+                    {listar}
+                
+                </DivMain>
             }
             {!role &&
                 <>

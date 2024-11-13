@@ -5,7 +5,6 @@ import { FormLogin } from "../components/FomLogin";
 
 export const Login = () =>{
     
-
     useEffect(()=>{
         const token = localStorage.getItem("token")
         
