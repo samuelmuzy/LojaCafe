@@ -35,8 +35,6 @@ export const ModalExcluir = (props) => {
                                 <ButtonModal onClick={onClickFecharModal}>Fechar</ButtonModal>
                                 <ButtonModal onClick={deletarUsuario}>Sim</ButtonModal>
                             </DivButtons>
-                            
-                            
                         </DivModal>
                     </ModalS>
                 : 

@@ -1,8 +1,6 @@
 import { useProdutos } from "../hooks/useProdutos";
 import { Loading } from "../components/Loading";
 import { useGetToken } from "../hooks/useGetToken";
-import { useProtectedPage } from "../hooks/useVerificarToken";
-import { buscarProdutos } from "../service/VerificarProdutos";
 import { useNavigate } from "react-router-dom";
 
 export const PerfilUsuario = () =>{
