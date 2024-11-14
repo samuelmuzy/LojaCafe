@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-export const useCadastrar = () => {
+export const useCadastrar = (url) => {
     
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
@@ -9,7 +9,7 @@ export const useCadastrar = () => {
 
     const cadastrar = (body,resetForm) => {
         setIsLoading(true);
-        axios.post("http://localhost:3003/clientes", body)
+        axios.post(url, body)
             .then((response) => {
                 setSucesso(response.data);
                 setError("");

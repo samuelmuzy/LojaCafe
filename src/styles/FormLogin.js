@@ -101,20 +101,6 @@ export const DivImagem = styled.div`
     }
 `
 
-export const DivImagemCadastro = styled.div`
-    background-image: url(${imagem});
-    background-size: cover;
-    background-position: center; /* Centraliza a imagem */
-    width: 100%;
-    height: 101vh;
-    display: flex;
-    justify-content: center;
-    @media (max-width: 767px) {
-        background-image: none;
-        width: 0;
-        height: 0;
-    }
-`
 export const StyledWrapper = styled.div`
     width: 95%;
   button {

@@ -16,7 +16,7 @@ export const FormCadastro = () =>{
     });
     
     const {NavegarLogin} = useNavegar();
-    const [cadastrar, isLoading, error, sucesso] = useCadastrar();
+    const [cadastrar, isLoading, error, sucesso] = useCadastrar("http://localhost:3003/clientes");
 
     const Cadastro = (event) => { 
         event.preventDefault();
@@ -74,8 +74,8 @@ export const FormCadastro = () =>{
                 {!isLoading && (
                     <>
                         <p onClick={NavegarLogin}>Já tenho uma conta</p>
-                        <p>{error}</p>
-                        <p>{sucesso}</p>
+                        <p>{error || sucesso}</p>
+                        
                     </>
                 )}
                 {isLoading && <Loading />}

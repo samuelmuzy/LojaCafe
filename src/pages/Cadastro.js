@@ -1,4 +1,4 @@
-import { Div, DivImagemCadastro} from "../styles/FormLogin";
+import { Div, DivImagem} from "../styles/FormLogin";
 import { FormCadastro } from "../components/FormCadastro";
 
 export const Cadastro = () => {
@@ -6,7 +6,7 @@ export const Cadastro = () => {
     return (
         <Div>
             <FormCadastro></FormCadastro>
-            <DivImagemCadastro></DivImagemCadastro>
+            <DivImagem></DivImagem>
         </Div>
     );
 };
