@@ -9,7 +9,7 @@ import { useNavegar } from "../hooks/useNavegar";
 import { useGetToken } from "../hooks/useGetToken";
 import { useForm } from "../hooks/useForm";
 import { DivButtons } from "../styles/Modal";
-import { ButtonAlterar } from "../styles/Usuarios";
+import { ButtonAlterar, DivUsuarios } from "../styles/Usuarios";
 
 export const Produtos = () =>{
 
@@ -56,7 +56,7 @@ export const Produtos = () =>{
 
     const listar = protutos.map((prod)=>{
         return(
-            <div key={prod.dfid_cliente}>
+            <DivUsuarios key={prod.dfid_cliente}>
                 <p>{prod.dfnome_cliente}</p>
                 <p>{prod.dfemail_cliente}</p>
                 <p>{prod.dftelefone_cliente}</p>
@@ -67,7 +67,7 @@ export const Produtos = () =>{
                         <ButtonAlterar onClick={() => abrirModalAlterar(prod.dfid_cliente)}>Alterar</ButtonAlterar>
                     </DivButtons>
                 }
-            </div>
+            </DivUsuarios>
         )
     })
     

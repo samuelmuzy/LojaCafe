@@ -2,7 +2,7 @@ import { useProdutos } from "../hooks/useProdutos";
 import { Loading } from "../components/Loading";
 import { useGetToken } from "../hooks/useGetToken";
 import { useNavigate } from "react-router-dom";
-import { ButtonPerfil, DivItens, DivMain, DivPerfil, P } from "../styles/CardDeUsuarios";
+import { DivMain } from "../styles/CardDeUsuarios";
 import { Perfil } from "../components/Perfil";
 
 export const PerfilUsuario = () =>{
@@ -45,11 +45,7 @@ export const PerfilUsuario = () =>{
                 <Loading></Loading>
             }
             {!isLoading && role &&
-                <DivMain>
-                    <h2>Meu perfil</h2>
-                    {listar}
-                
-                </DivMain>
+                    listar
             }
             {!role &&
                 <>

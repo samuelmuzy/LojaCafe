@@ -32,6 +32,7 @@ export const DivModal = styled.div`
 `
 export const DivButtons = styled.div`
     display: flex;
+    gap: 6px;
 `
 
 export const ButtonModal = styled.button`

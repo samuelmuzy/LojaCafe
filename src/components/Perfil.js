@@ -1,6 +1,8 @@
 import { ButtonPerfil, DivItens, DivMain, DivPerfil, P } from "../styles/CardDeUsuarios";
 export const Perfil = (props) =>{
     return(
+    <DivMain>
+        <h2>Meu perfil</h2>
         <DivPerfil>
             <DivItens key={props.key}>
                 <h3>Nome</h3>
@@ -15,6 +17,7 @@ export const Perfil = (props) =>{
                     
             <ButtonPerfil onClick={props.deslogar}>Deslogar</ButtonPerfil>
         </DivPerfil>
+    </DivMain>
         
     )
 }
