@@ -44,9 +44,9 @@ export const PerfilUsuario = () =>{
                 <Loading></Loading>
             }
             
-            {!isLoading && error && role && <p>{error}</p>}
+            {!isLoading && !id && <p>{error}</p>}
 
-            {!isLoading && protutos && role && !error &&
+            {!isLoading && protutos && role &&
                     perfilUsuario
             }
             {!role &&
