@@ -19,11 +19,16 @@ export const useNavegar = () => {
         navigate("/produtos");
     };
 
+    const NavegarBebidas = () =>{
+        navigate("/bebidas");
+    }
+
     return {
         NavegarLogin,
         NavegarCadastro,
         NavegarPerfilUsuario,
-        NavegarProdutos
+        NavegarProdutos,
+        NavegarBebidas
     };
 };
 

@@ -24,7 +24,7 @@ export const FormLogin = () =>{
         axios.post('http://localhost:3003/clientes/login', form)
             .then((response) => {
                 localStorage.setItem("token", response.data.token); // Salva o token no local storage
-                navigate("/produtos")
+                navigate("/bebidas")
                 setIsLoading(false);
             })
             .catch((error) => {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const A = styled.a`
-
+    cursor: pointer;
 `
 export const HeaderDiv = styled.header`
     display: flex;
@@ -9,7 +9,6 @@ export const HeaderDiv = styled.header`
     width: 100%;
     justify-content: space-around;
     align-items: center;
-    
     padding: 0.5% 0 1% 0%;
 `
 

@@ -5,7 +5,7 @@ import { useNavegar } from "../hooks/useNavegar"
 import { useGetToken } from "../hooks/useGetToken"
 import { Loading } from "./Loading"
 export const Header = () =>{
-    const {NavegarLogin,NavegarCadastro,NavegarProdutos,NavegarPerfilUsuario} = useNavegar();
+    const {NavegarLogin,NavegarCadastro,NavegarProdutos,NavegarPerfilUsuario,NavegarBebidas} = useNavegar();
     const [id,role] = useGetToken();
     
     return(
@@ -13,7 +13,7 @@ export const Header = () =>{
             <LogoHeader src={logo} alt="logo"/>
             <Nav>
                 <A>Principal</A>
-                <A>Bebidas</A>
+                <A onClick={NavegarBebidas}>Bebidas</A>
                 {role === "ADMIN" &&
                     <A onClick={NavegarProdutos}>Usuários</A>
                 }

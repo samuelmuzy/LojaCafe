@@ -23,9 +23,8 @@ export const Produtos = () =>{
     const [modalAlterar,setModalAlterar] = useState(false);
     const [idModal,setIdModal] = useState("");
 
-    
-
     const [id,role] = useGetToken();
+
 
     const abrirModalExcluir = (id) =>{
         setModalExcluir(true);
@@ -75,22 +74,26 @@ export const Produtos = () =>{
     return(
         <>
             <Header></Header>
-            <button onClick={NavegarPerfilUsuario}>Perfil</button>
-            <input placeholder="Digite um nome" type="search" onChange={onChange} name="nome" value={form.nome}></input>
+            {role === "ADMIN" &&
+                <>
+                    <button onClick={NavegarPerfilUsuario}>Perfil</button>
+                    <input placeholder="Digite um nome" type="search" onChange={onChange} name="nome" value={form.nome}></input>
 
-            {isLoading &&  
-                <Loading/>
-            }
-            
-            {!isLoading && error && <p>{error}</p>}
-            
-            {!isLoading && protutos && !error &&
-                listar
-            }
+                    {isLoading &&  
+                        <Loading/>
+                    }
+                    
+                    {!isLoading && error && <p>{error}</p>}
+                    
+                    {!isLoading && protutos && !error &&
+                        listar
+                    }
 
-            <button>{role}</button>
-            <ModalAlterar onClickFecharModal={fecharModalAlterar} modalEstado={modalAlterar} id={idModal} />
-            <ModalExcluir onClickFecharModal={fecharModalExcluir} modalEstado={modalExcluir} id={idModal}/>
+                
+                    <ModalAlterar onClickFecharModal={fecharModalAlterar} modalEstado={modalAlterar} id={idModal} />
+                    <ModalExcluir onClickFecharModal={fecharModalExcluir} modalEstado={modalExcluir} id={idModal}/>
+                </>
+            }
         </>
     )    
 }
