@@ -62,12 +62,10 @@ export const Produtos = () =>{
                 <p>{prod.dfemail_cliente}</p>
                 <p>{prod.dftelefone_cliente}</p>
                 <p>{prod.dfuser_role}</p>
-                {role === "ADMIN" &&
-                    <DivButtons>
-                        <ButtonAlterar onClick={() => abrirModalExcluir(prod.dfid_cliente)}>Deletar</ButtonAlterar>
-                        <ButtonAlterar onClick={() => abrirModalAlterar(prod.dfid_cliente)}>Alterar</ButtonAlterar>
-                    </DivButtons>
-                }
+                <DivButtons>
+                    <ButtonAlterar onClick={() => abrirModalExcluir(prod.dfid_cliente)}>Deletar</ButtonAlterar>
+                    <ButtonAlterar onClick={() => abrirModalAlterar(prod.dfid_cliente)}>Alterar</ButtonAlterar>
+                </DivButtons>
             </DivUsuarios>
         )
     })
