@@ -3,6 +3,7 @@ import { Loading } from "../components/Loading";
 import { useGetToken } from "../hooks/useGetToken";
 import { useNavigate } from "react-router-dom";
 import { Perfil } from "../components/Perfil";
+import { Header } from "../components/Header";
 
 export const PerfilUsuario = () =>{
 
@@ -40,6 +41,7 @@ export const PerfilUsuario = () =>{
 
     return(
         <>
+            <Header></Header>
             {isLoading &&
                 <Loading></Loading>
             }

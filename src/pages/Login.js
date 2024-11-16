@@ -1,6 +1,7 @@
 import { useEffect} from "react";
 import {Div,DivImagem} from "../styles/FormLogin";
 import { FormLogin } from "../components/FomLogin";
+import { Header } from "../components/Header";
 
 
 export const Login = () =>{
@@ -15,9 +16,12 @@ export const Login = () =>{
     },[])
 
     return(
-        <Div>
-            <FormLogin></FormLogin>
-            <DivImagem></DivImagem>
-        </Div>
+        <>
+            <Header></Header>
+            <Div>
+                <FormLogin></FormLogin>
+                <DivImagem></DivImagem>
+            </Div>
+        </>
     )
 }

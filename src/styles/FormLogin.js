@@ -93,7 +93,7 @@ export const DivImagem = styled.div`
     background-size: cover;
     background-position: center; /* Centraliza a imagem */
     width: 100%;
-    height: 101vh;
+    height: 99vh;
     display: flex;
     justify-content: center;
     @media (max-width: 767px) {
@@ -142,4 +142,9 @@ export const StyledWrapper = styled.div`
     transform: translateY(0);
   }
 `;
+export const P = styled.p`
+  cursor: pointer;
+  color: navy;
+
+`
 

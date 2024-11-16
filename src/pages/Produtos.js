@@ -10,6 +10,7 @@ import { useGetToken } from "../hooks/useGetToken";
 import { useForm } from "../hooks/useForm";
 import { DivButtons } from "../styles/Modal";
 import { ButtonAlterar, DivUsuarios } from "../styles/Usuarios";
+import { Header } from "../components/Header";
 
 export const Produtos = () =>{
 
@@ -75,6 +76,7 @@ export const Produtos = () =>{
 
     return(
         <>
+            <Header></Header>
             <button onClick={NavegarPerfilUsuario}>Perfil</button>
             <input placeholder="Digite um nome" type="search" onChange={onChange} name="nome" value={form.nome}></input>
 
@@ -88,7 +90,7 @@ export const Produtos = () =>{
                 listar
             }
 
-            
+            <button>{role}</button>
             <ModalAlterar onClickFecharModal={fecharModalAlterar} modalEstado={modalAlterar} id={idModal} />
             <ModalExcluir onClickFecharModal={fecharModalExcluir} modalEstado={modalExcluir} id={idModal}/>
         </>

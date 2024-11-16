@@ -1,7 +1,7 @@
 import { useForm } from "../hooks/useForm";
 import { Loading } from "../components/Loading";
 import { useNavegar } from "../hooks/useNavegar";
-import { Formulario, Input } from "../styles/FormLogin";
+import { Formulario,P } from "../styles/FormLogin";
 import { useCadastrar } from "../hooks/useCadastrar";
 import { InputFormulario } from "./InputFormulario";
 import { ButtonForm } from "./ButtonForm";
@@ -73,7 +73,7 @@ export const FormCadastro = () =>{
                 
                 {!isLoading && (
                     <>
-                        <p onClick={NavegarLogin}>Já tenho uma conta</p>
+                        <P onClick={NavegarLogin}>Já tenho uma conta</P>
                         <p>{error || sucesso}</p>
                         
                     </>
