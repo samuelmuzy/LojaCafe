@@ -1,26 +1,30 @@
 import axios from "axios";
 import { useForm } from "../hooks/useForm";
 import { ModalS,DivModal,InputModal, ButtonModal, DivButtons } from "../styles/Modal";
+import { useState } from "react";
 export const ModalAlterar = (props) =>{
     
     const { modalEstado, id , onClickFecharModal } = props;
+    const [error,setError] = useState("");
 
     const [form,onChange, resetForm ] = useForm({nome:"",email:"",telefone:""})
 
     const token = localStorage.getItem("token")
 
     const alterarUsuario = () =>{
-        axios.put(`http://localhost:3003/clientes/${id}`,form , {
+        axios.put(`http://localhost:3003/clientes/alterar/${id}`,form , {
             headers:{
                 Authorization:token
             }
         })
         .then((response)=>{
             console.log(response.data)
+            setError("");
+            resetForm()
             onClickFecharModal()
         })
         .catch((error)=>{
-            console.log(error.response.data);
+            setError(error.response.data);
         })
     }
 
@@ -37,7 +41,7 @@ export const ModalAlterar = (props) =>{
                             <ButtonModal onClick={onClickFecharModal}>Fechar</ButtonModal>
                             <ButtonModal onClick={alterarUsuario}>Salvar</ButtonModal>
                         </DivButtons>
-                        
+                        <p>{error}</p>
                         
                     </DivModal>
                 </ModalS>

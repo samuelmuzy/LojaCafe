@@ -16,7 +16,7 @@ export const FormCadastro = () =>{
     });
     
     const {NavegarLogin} = useNavegar();
-    const [cadastrar, isLoading, error, sucesso] = useCadastrar("http://localhost:3003/clientes");
+    const [cadastrar, isLoading, error, sucesso] = useCadastrar("http://localhost:3003/clientes/cadastro");
 
     const Cadastro = (event) => { 
         event.preventDefault();

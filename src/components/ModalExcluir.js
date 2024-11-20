@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { ModalS,DivModal, ButtonModal, DivButtons } from "../styles/Modal";
 
@@ -6,11 +6,12 @@ import { ModalS,DivModal, ButtonModal, DivButtons } from "../styles/Modal";
 export const ModalExcluir = (props) => {
 
         const { modalEstado, id , onClickFecharModal} = props;
+        const [error,setError] = useState("");
         //Recebe um estado por meio do Componente Postagem assim abrindo o modal quando for verdadeiro
         const token = localStorage.getItem("token");
 
         const deletarUsuario = () =>{
-            axios.delete(`http://localhost:3003/clientes/${id}`,{
+            axios.delete(`http://localhost:3003/clientes/deletar/${id}`,{
                 headers:{
                     Authorization:token
                 }
@@ -21,7 +22,7 @@ export const ModalExcluir = (props) => {
                 
             })
             .catch((error)=>{
-                console.log(error.response.data);
+                setError(error.response.data);
             })
             
         }
@@ -34,6 +35,7 @@ export const ModalExcluir = (props) => {
                             <DivButtons>
                                 <ButtonModal onClick={onClickFecharModal}>Fechar</ButtonModal>
                                 <ButtonModal onClick={deletarUsuario}>Sim</ButtonModal>
+                                <p>{error}</p>
                             </DivButtons>
                         </DivModal>
                     </ModalS>

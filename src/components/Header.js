@@ -7,6 +7,7 @@ import { Loading } from "./Loading"
 export const Header = () =>{
     const {NavegarLogin,NavegarCadastro,NavegarProdutos,NavegarPerfilUsuario,NavegarBebidas} = useNavegar();
     const [id,role] = useGetToken();
+    const token = localStorage.getItem("token")
     
     return(
         <HeaderDiv>
@@ -18,6 +19,7 @@ export const Header = () =>{
                     <A onClick={NavegarProdutos}>Usuários</A>
                 }
                 <A onClick={NavegarPerfilUsuario}>Perfil</A>
+               
             </Nav>
             <ImgCarrinho src={sacola} alt="Carrinho de compras"/>
         </HeaderDiv>

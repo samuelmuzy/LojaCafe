@@ -11,13 +11,13 @@ import { useForm } from "../hooks/useForm";
 import { DivButtons } from "../styles/Modal";
 import { ButtonAlterar, DivUsuarios } from "../styles/Usuarios";
 import { Header } from "../components/Header";
+import { CardDeUsuario } from "../components/CardDeUsuarios";
 
 export const Produtos = () =>{
 
     const [form, onChange, resetForm] = useForm({nome: ""});
     
-    const [protutos,setProdutos,isLoading,error] = useProdutos(`http://localhost:3003/clientes?nome=${form.nome}`);
-    const {NavegarPerfilUsuario} = useNavegar()
+    const [protutos,setProdutos,isLoading,error] = useProdutos(`http://localhost:3003/clientes/buscar?nome=${form.nome}`);
     
     const [modalExcluir,setModalExcluir] = useState(false);
     const [modalAlterar,setModalAlterar] = useState(false);
@@ -56,16 +56,17 @@ export const Produtos = () =>{
 
     const listar = protutos.map((prod)=>{
         return(
-            <DivUsuarios key={prod.dfid_cliente}>
-                <p>{prod.dfnome_cliente}</p>
-                <p>{prod.dfemail_cliente}</p>
-                <p>{prod.dftelefone_cliente}</p>
-                <p>{prod.dfuser_role}</p>
-                <DivButtons>
-                    <ButtonAlterar onClick={() => abrirModalExcluir(prod.dfid_cliente)}>Deletar</ButtonAlterar>
-                    <ButtonAlterar onClick={() => abrirModalAlterar(prod.dfid_cliente)}>Alterar</ButtonAlterar>
-                </DivButtons>
-            </DivUsuarios>
+            <>
+                <CardDeUsuario 
+                    id={prod.dfid_cliente} role={prod.dfuser_role}
+                    nome={prod.dfnome_cliente} 
+                    email={prod.dfemail_cliente} 
+                    telefone={prod.dftelefone_cliente}  
+                    abrirModalAlterar={() => abrirModalAlterar(prod.dfid_cliente)} 
+                    abrirModalExcluir={() => abrirModalExcluir(prod.dfid_cliente)}
+                />
+            </>
+          
         )
     })
     
@@ -76,7 +77,7 @@ export const Produtos = () =>{
             <Header></Header>
             {role === "ADMIN" &&
                 <>
-                    <button onClick={NavegarPerfilUsuario}>Perfil</button>
+                    
                     <input placeholder="Digite um nome" type="search" onChange={onChange} name="nome" value={form.nome}></input>
 
                     {isLoading &&  

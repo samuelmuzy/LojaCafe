@@ -13,7 +13,7 @@ export const PerfilUsuario = () =>{
 
     const [id,role] = useGetToken(token);
     
-    const [protutos,setProdutos,isLoading,error] = useProdutos(`http://localhost:3003/clientes/buscar/${id}`);
+    const [protutos,setProdutos,isLoading,error] = useProdutos(`http://localhost:3003/clientes/buscarid/${id}`);
 
     
     
@@ -42,6 +42,7 @@ export const PerfilUsuario = () =>{
     return(
         <>
             <Header></Header>
+            
             {isLoading &&
                 <Loading></Loading>
             }
