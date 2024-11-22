@@ -35,3 +35,14 @@ export const ButtonPerfil = styled.button`
     padding: 2%;
     align-self: center;
 `
+
+export const DivSemConta = styled.div `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+
+
+`

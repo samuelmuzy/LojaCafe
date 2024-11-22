@@ -101,6 +101,11 @@ export const DivImagem = styled.div`
     }
 `
 
+export const TituloForm = styled.h1`
+  color: #591f12;
+  font-weight: bolder;
+`
+
 export const StyledWrapper = styled.div`
     width: 95%;
   button {

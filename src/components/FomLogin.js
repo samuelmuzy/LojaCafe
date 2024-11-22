@@ -3,7 +3,7 @@ import { useNavegar } from "../hooks/useNavegar";
 import { useForm } from "../hooks/useForm";
 import { InputFormulario } from "./InputFormulario";
 import axios from 'axios'
-import { Formulario,P } from "../styles/FormLogin";
+import { Formulario,P, TituloForm } from "../styles/FormLogin";
 import { useNavigate } from "react-router-dom";
 import { Loading } from "./Loading";
 import { ButtonForm } from "./ButtonForm";
@@ -35,7 +35,7 @@ export const FormLogin = () =>{
 
     return(
         <Formulario onSubmit={autenticar}>
-                <h1>Acesse sua conta</h1>
+                <TituloForm>Acesse sua conta</TituloForm>
 
                 <InputFormulario name={"email"} texto={"Email"} type={"text"} value={form.email} onChange={onChange}/>
                 <InputFormulario name={"senha"} texto={"Senha"} type={"password"} value={form.senha} onChange={onChange}/>

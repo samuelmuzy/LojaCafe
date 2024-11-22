@@ -4,6 +4,7 @@ import { useGetToken } from "../hooks/useGetToken";
 import { useNavigate } from "react-router-dom";
 import { Perfil } from "../components/Perfil";
 import { Header } from "../components/Header";
+import { DivSemConta } from "../styles/CardDeUsuarios";
 
 export const PerfilUsuario = () =>{
 
@@ -53,10 +54,10 @@ export const PerfilUsuario = () =>{
                     perfilUsuario
             }
             {!role &&
-                <>
+                <DivSemConta>
                     <p>Logue em uma conta</p>
                     <button onClick={navegarLogin}>Logar</button>
-                </>
+                </DivSemConta>
             }
             
             

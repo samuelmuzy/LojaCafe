@@ -1,7 +1,7 @@
 import { useForm } from "../hooks/useForm";
 import { Loading } from "../components/Loading";
 import { useNavegar } from "../hooks/useNavegar";
-import { Formulario,P } from "../styles/FormLogin";
+import { Formulario,P, TituloForm } from "../styles/FormLogin";
 import { useCadastrar } from "../hooks/useCadastrar";
 import { InputFormulario } from "./InputFormulario";
 import { ButtonForm } from "./ButtonForm";
@@ -35,7 +35,7 @@ export const FormCadastro = () =>{
 
     return(
         <Formulario onSubmit={Cadastro}>
-                <h1>Cadastro</h1>
+                <TituloForm>Cadastro</TituloForm>
                 <InputFormulario 
                     name="nome" 
                     texto="Nome" 

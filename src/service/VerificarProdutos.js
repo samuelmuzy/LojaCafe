@@ -6,8 +6,6 @@ export const buscarProdutos = async (setData) => {
     } catch (error) {
         console.error("Erro ao buscar produtos:", error);
     }
-    
-
 }
 
 
