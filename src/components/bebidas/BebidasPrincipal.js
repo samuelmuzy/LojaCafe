@@ -12,7 +12,7 @@ import { DivBebidas, DivInputPesquisa, InputPesquisa } from '../../styles/Bebida
 import { ModalAlterar } from '../Modal/ModalAlterar';
 import {ModalExcluir } from '../Modal/ModalExcluir'
 import { Loading } from '../Loading'
-import {Upload} from '../formularios/Upload'
+import {Upload} from '../Modal/Upload'
 import { Paginacao } from './Paginacao';
 import { useModal } from '../../hooks/useModal';
 import ButtonAdd from '../buttons/ButtonAdd';
