@@ -32,11 +32,13 @@ export const InputHeader = styled.input`
 export const ImgCarrinho = styled.img`
     width: 50px; /* Define um tamanho fixo */
     height: auto; /* Mantém a proporção */
+    cursor: pointer;
 `;
 
 export const LogoHeader = styled.img`
     width: 6%; /* Define um tamanho fixo */
     height: auto;
+    cursor: pointer;
 `
 
 export const ButtonHeader = styled.button`

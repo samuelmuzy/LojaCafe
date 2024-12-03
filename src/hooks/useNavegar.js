@@ -3,8 +3,12 @@ import { useNavigate } from "react-router-dom";
 export const useNavegar = () => {
     const navigate = useNavigate();
 
-    const NavegarLogin = () => {
+    const NavegarPrincipal = () =>{
         navigate("/");
+    }
+
+    const NavegarLogin = () => {
+        navigate("/login");
     };
 
     const NavegarCadastro = () => {
@@ -15,19 +19,20 @@ export const useNavegar = () => {
         navigate("/perfil");
     };
 
-    const NavegarProdutos = () => {
-        navigate("/produtos");
-    };
-
     const NavegarBebidas = () =>{
         navigate("/bebidas");
     }
 
+    const NavegarCarrinho = () =>{
+        navigate('/carrinho');
+    }
+
     return {
         NavegarLogin,
+        NavegarCarrinho,
         NavegarCadastro,
         NavegarPerfilUsuario,
-        NavegarProdutos,
+        NavegarPrincipal,
         NavegarBebidas
     };
 };

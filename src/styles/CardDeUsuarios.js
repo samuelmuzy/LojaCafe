@@ -43,6 +43,15 @@ export const DivSemConta = styled.div `
     justify-content: center;
     width: 100%;
     height: 90vh;
-
-
+    gap: 30px;
 `
+
+export const ImagemConta = styled.img`
+    width: 15%;
+`
+
+export const ButtonConta = styled.button`
+    width: 20%;
+    height: 40px;
+`
+

@@ -1,6 +1,6 @@
 import { useEffect} from "react";
 import {Div,DivImagem} from "../styles/FormLogin";
-import { FormLogin } from "../components/FomLogin";
+import { FormLogin } from "../components/formularios/FomLogin";
 import { Header } from "../components/Header";
 
 

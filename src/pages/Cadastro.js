@@ -1,5 +1,5 @@
 import { Div, DivImagem} from "../styles/FormLogin";
-import { FormCadastro } from "../components/FormCadastro";
+import { FormCadastro } from "../components/formularios/FormCadastro";
 import { Header } from "../components/Header";
 
 export const Cadastro = () => {
