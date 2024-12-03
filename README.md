@@ -25,6 +25,8 @@ Crie as tabelas no MySQL:
 Execute o seguinte script no MySQL para criar as tabelas necessárias:
 sql
 Copiar código
+
+
 CREATE TABLE tbcliente (
     dfid_cliente VARCHAR(200) PRIMARY KEY,
     dfnome_cliente VARCHAR(200),
