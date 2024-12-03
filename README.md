@@ -65,9 +65,10 @@ Configuração da API:
 
 Após instalar o backend, acesse o arquivo clienteService na API e altere o tipo de usuário para ADMIN para criar uma conta com acesso aos endpoints de alteração. Para testar como usuário comum, basta deixar o tipo de usuário como USER.
 Após isso, pressione o botão de login e faça o cadastro no Front end. Apenas usuários logados poderão adicionar itens ao carrinho. Quando uma bebida for alterada para "indisponível", ela não aparecerá para usuários que não forem ADMIN.
+Logo após, adicione uma bebida no botão "Adicionar" e adicione três bebidas na aba de bebidas.
 Código para Cadastro de Usuário:
 
-Aqui está o código para cadastrar um usuário com o tipo de usuário definido como ADMIN ou USER:
+
 
 Aqui está o código para cadastrar um usuário com o tipo de usuário definido como ADMIN ou USER:
 
