@@ -69,40 +69,48 @@ Código para Cadastro de Usuário:
 
 Aqui está o código para cadastrar um usuário com o tipo de usuário definido como ADMIN ou USER:
 
-export const cadastro = async (nome: string, email: string, telefone: string, senha: string) => {
-    try {
-        // Validações
-        if (!nome || !telefone || !email || !senha) {
-            throw { status: 400, message: "Campo faltando" };  
+Aqui está o código para cadastrar um usuário com o tipo de usuário definido como ADMIN ou USER:
+
+
+    export const cadastro = async (nome: string, email: string, telefone: string, senha: string) => {
+        try {
+            
+            // Validações
+            
+            if (!nome || !telefone || !email || !senha) {
+                throw { status: 400, message: "Campo faltando" };  
+            
+            }
+            
+            if (typeof senha !== "string") {
+                throw { status: 400, message: "A senha deve ser uma string." };  
+            
+            }
+            
+            // Verifica se o usuário já existe
+            const user = await buscarEmailCliente(email);
+    
+            if (user) {
+                throw { status: 409, message: "Usuário já cadastrado" }; 
+            }
+    
+            const senhaHash = await hashPassword(senha);
+    
+            const id = v7();
+            
+            // ALTERE AQUI PARA ADMIN
+            const role = userType.USER; 
+            // ALTERE AQUI PARA ADMIN
+            
+            await cadastrarCliente(id, nome, email, telefone, senhaHash, role);
+    
+            return "Usuário cadastrado com sucesso";  // Retornando status 201 para sucesso
+    
+        } catch (error: any) {
+    
+            throw { status: error.status || 500, message: error.message || "Erro ao realizar o cadastro" };
         }
-        if (typeof senha !== "string") {
-            throw { status: 400, message: "A senha deve ser uma string." };  
-        }
-
-        // Verifica se o usuário já existe
-        const user = await buscarEmailCliente(email);
-
-        if (user) {
-            throw { status: 409, message: "Usuário já cadastrado" }; 
-        }
-
-        const senhaHash = await hashPassword(senha);
-
-        const id = v7();
-        
-        // ALTERE AQUI PARA ADMIN
-        const role = userType.USER; 
-        // ALTERE AQUI PARA ADMIN
-        
-        await cadastrarCliente(id, nome, email, telefone, senhaHash, role);
-
-        return "Usuário cadastrado com sucesso";  // Retornando status 201 para sucesso
-
-    } catch (error: any) {
-
-        throw { status: error.status || 500, message: error.message || "Erro ao realizar o cadastro" };
-    }
-};
+    };
 Documentação
 A interface de usuário foi construída com React e a comunicação com o backend é feita por meio de requisições HTTP. A documentação para a API com a qual o Front-End interage pode ser acessada através do link da documentação da API.
 
