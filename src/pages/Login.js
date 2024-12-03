@@ -2,6 +2,7 @@ import { useEffect} from "react";
 import {Div,DivImagem} from "../styles/FormLogin";
 import { FormLogin } from "../components/formularios/FomLogin";
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 
 export const Login = () =>{
@@ -22,6 +23,7 @@ export const Login = () =>{
                 <FormLogin></FormLogin>
                 <DivImagem></DivImagem>
             </Div>
+            <Footer/>
         </>
     )
 }

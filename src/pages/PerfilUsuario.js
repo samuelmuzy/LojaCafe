@@ -6,6 +6,7 @@ import { Perfil } from "../components/Perfil";
 import { Header } from "../components/Header";
 import { DivSemConta } from "../styles/CardDeUsuarios";
 import { CrieUmaConta } from "../components/CrieUmaConta";
+import { Footer } from "../components/Footer";
 
 export const PerfilUsuario = () =>{
 
@@ -54,8 +55,7 @@ export const PerfilUsuario = () =>{
             {!token &&
                 <CrieUmaConta/>
             }
-            
-            
+            <Footer/>
         </>
     )
 }

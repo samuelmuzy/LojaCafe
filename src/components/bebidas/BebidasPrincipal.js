@@ -20,7 +20,7 @@ import ButtonAdd from '../buttons/ButtonAdd';
 export const BebidasPrincipal = () =>{
     const [form, onChange, resetForm] = useForm({ nomeBebida: "" });
     const [currentPage, setCurrentPage] = useState(0);
-    const [limit,setLimit] = useState(2);
+    const [limit,setLimit] = useState(8);
     const { modais, idModal, toggleModal } = useModal(); 
 
    

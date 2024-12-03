@@ -5,6 +5,7 @@ import { Header } from "../components/Header";
 import { ToastContainer, toast } from 'react-toastify';
 import { CarrinhoCompras } from "../components/carrinhoCompras/CarrinhoCompras";
 import { CarrinhoVazio } from "../components/carrinhoCompras/CarrinhoVazio";
+import { Footer } from "../components/Footer";
 
 export const Carrinho = () => {
     const [carrinho, setCarrinho] = useState(false);
@@ -81,6 +82,7 @@ export const Carrinho = () => {
                     <CarrinhoCompras key={ped.idPedido} pedido={ped} deletarBebida={deletarBebida} />
                 ))
             )}
+            <Footer/>
         </div>
     );
 };
