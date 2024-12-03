@@ -20,6 +20,7 @@ Execução
 Clone o repositório do Backend:
 
 Faça o download do backend aqui.
+https://github.com/GabrielDSbianquini/Trabalho_backend
 Crie as tabelas no MySQL:
 
 Execute o seguinte script no MySQL para criar as tabelas necessárias:
