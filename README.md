@@ -11,14 +11,14 @@ Requisitos
 Tenha o Node.js instalado na versão mais recente.
 Tenha o npm instalado na versão mais recente.
 Tenha o VS Code instalado na versão mais recente.
-Tenha o React instalado.
+Tenha o React (ou qualquer outra biblioteca/framework Front-End de sua preferência) instalado.
 Instalação
 Clone este repositório para sua máquina local.
 Abra o diretório do projeto no VS Code.
 Execute o comando npm install para instalar todas as dependências do Front-End.
 Execução
 Clone o repositório do Backend:
-https://github.com/GabrielDSbianquini/Trabalho_backend
+
 Faça o download do backend aqui.
 Crie as tabelas no MySQL:
 
