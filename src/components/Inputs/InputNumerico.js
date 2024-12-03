@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { ButtonInputNumerico, DivInput, DivInputNumerico } from "../../styles/Bebidas"
-import GlobalStateContext from "../../global/GlobalStateContext";
+
 
 export const InputNumerico = (props) =>{
     const [numerico,setNumerico] = useState(1);

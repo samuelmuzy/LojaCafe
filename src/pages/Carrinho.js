@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { useGetToken } from "../hooks/useGetToken";
-import GlobalStateContext from "../global/GlobalStateContext";
 import axios from "axios";
 import { Header } from "../components/Header";
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,7 +8,7 @@ import { CarrinhoVazio } from "../components/carrinhoCompras/CarrinhoVazio";
 
 export const Carrinho = () => {
     const [carrinho, setCarrinho] = useState(false);
-    const { states, setters, requests } = useContext(GlobalStateContext);
+   
 
     const token = localStorage.getItem("token")
     const [controle,setControle] = useState(false);
