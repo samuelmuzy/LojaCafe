@@ -1,17 +1,25 @@
-Café_Dev - Front-End: A energia que seu sistema precisa
+## Café_Dev - Front-End: A energia que seu sistema precisa
 Descrição
 O Café_Dev Front-End é uma interface moderna e eficiente para interação com a API de gerenciamento de pedidos de bebidas. Pensada para desenvolvedores que buscam facilidade e praticidade, assim como um bom café, nossa interface oferece a energia necessária para gerenciar pedidos de forma intuitiva. Através dela, é possível criar, visualizar e atualizar pedidos, adicionar bebidas ao carrinho e interagir com os clientes. A segurança no acesso à interface é garantida por tokens JWT, para que apenas usuários autorizados possam realizar ações.
 
-Funcionalidades
+## Funcionalidades
 Gerenciamento de Pedidos: Interface para criação, visualização, exclusão e atualização de pedidos.
+
 Gerenciamento de Bebidas: Adição, atualização, exclusão e consulta de bebidas.
+
 Carrinho de Compras: Adicionar bebidas ao carrinho e realizar o checkout.
+
 Autenticação: Garantia de segurança utilizando JWT para login e controle de acesso.
-Requisitos
+
+## Requisitos
 Tenha o Node.js instalado na versão mais recente.
+
 Tenha o npm instalado na versão mais recente.
+
 Tenha o VS Code instalado na versão mais recente.
+
 Tenha o React (ou qualquer outra biblioteca/framework Front-End de sua preferência) instalado.
+
 Instalação
 Clone este repositório para sua máquina local.
 Abra o diretório do projeto no VS Code.
