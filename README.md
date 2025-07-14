@@ -1,5 +1,6 @@
 ## Café_Dev - Front-End: A energia que seu sistema precisa
 Descrição
+
 O Café_Dev Front-End é uma interface moderna e eficiente para interação com a API de gerenciamento de pedidos de bebidas. Pensada para desenvolvedores que buscam facilidade e praticidade, assim como um bom café, nossa interface oferece a energia necessária para gerenciar pedidos de forma intuitiva. Através dela, é possível criar, visualizar e atualizar pedidos, adicionar bebidas ao carrinho e interagir com os clientes. A segurança no acesso à interface é garantida por tokens JWT, para que apenas usuários autorizados possam realizar ações.
 
 ## Funcionalidades
