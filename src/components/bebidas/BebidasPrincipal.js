@@ -16,6 +16,7 @@ import {Upload} from '../Modal/Upload'
 import { Paginacao } from './Paginacao';
 import { useModal } from '../../hooks/useModal';
 import ButtonAdd from '../buttons/ButtonAdd';
+import { ApiUrl } from '../../const/apiUrl';
 
 export const BebidasPrincipal = () =>{
     const [form, onChange, resetForm] = useForm({ nomeBebida: "" });
@@ -24,7 +25,7 @@ export const BebidasPrincipal = () =>{
     const { modais, idModal, toggleModal } = useModal(); 
 
    
-    const [bebidas, setBebidas, isLoading, error] = useProdutos(`http://localhost:3003/bebidas?nomeBebida=${form.nomeBebida}`);
+    const [bebidas, setBebidas, isLoading, error] = useProdutos(`${ApiUrl}/bebidas?nomeBebida=${form.nomeBebida}`);
     
     const page = Math.ceil(bebidas.length / limit);
     const startIndex = currentPage * limit

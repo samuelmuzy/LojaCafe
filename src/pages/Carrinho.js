@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { CarrinhoCompras } from "../components/carrinhoCompras/CarrinhoCompras";
 import { CarrinhoVazio } from "../components/carrinhoCompras/CarrinhoVazio";
 import { Footer } from "../components/Footer";
+import { ApiUrl } from "../const/apiUrl";
 
 export const Carrinho = () => {
     const [carrinho, setCarrinho] = useState(false);
@@ -32,7 +33,7 @@ export const Carrinho = () => {
     };
 
     const deletarBebida = (idbebida,idPedido) =>{
-        axios.delete(`http://localhost:3003/pedidos/deletarbebida/${idPedido}/${idbebida}`,{
+        axios.delete(`${ApiUrl}/pedidos/deletarbebida/${idPedido}/${idbebida}`,{
             headers:{
                 Authorization:token
             }

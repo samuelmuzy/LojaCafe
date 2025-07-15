@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ModalS,DivModal, ButtonModal, DivButtons } from "../../styles/Modal";
 import { buscarProdutos } from "../../service/VerificarProdutos";
+import { ApiUrl } from "../../const/apiUrl";
 
 
 export const ModalExcluir = (props) => {
@@ -12,7 +13,7 @@ export const ModalExcluir = (props) => {
         const token = localStorage.getItem("token");
 
         const deletarUsuario = () => {
-            axios.delete(`http://localhost:3003/bebidas/deletar/${id}`, {
+            axios.delete(`${ApiUrl}/bebidas/deletar/${id}`, {
                 headers: {
                     Authorization: token
                 }

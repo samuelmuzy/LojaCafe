@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ApiUrl } from "../const/apiUrl";
 
 export const adicionarCarrinhoService = async (idCliente, idBebida, valor,quantidade, carrinho, idPedido) => {
     const token = localStorage.getItem("token");
@@ -9,7 +10,7 @@ export const adicionarCarrinhoService = async (idCliente, idBebida, valor,quanti
             formaPagamento: "cartão",
             bebidas: [{ quantity: quantidade, productId: idBebida }],
         };
-        const dataP = await axios.post("http://localhost:3003/pedidos/cadastro", body,{
+        const dataP = await axios.post(`${ApiUrl}/pedidos/cadastro`, body,{
             headers:{
                 Authorization:token
             }

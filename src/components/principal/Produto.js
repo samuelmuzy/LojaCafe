@@ -1,16 +1,14 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { CardBebidas } from "../bebidas/CardBebidas"
 import { ButtonBebidas, DivBebidas, DivCard, DivInputNumerico, ImgBebidas } from "../../styles/Bebidas"
 import { adicionarCarrinhoService, procurarPedidoService } from "../../service/AdicionarBebidasCarrinho"
-import { buscarProdutos } from "../../service/VerificarProdutos"
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Importando o CSS necessário
 
 import { useGetToken } from "../../hooks/useGetToken"
 import { InputNumerico } from "../Inputs/InputNumerico";
 import { DivBebidasCards } from "../../styles/Principal"
+import { ApiUrl } from "../../const/apiUrl"
 
 export const Produto = () =>{
     const [produtos,setProdutos] = useState([])
@@ -59,7 +57,7 @@ export const Produto = () =>{
     
     const exibirProdutos = async () => {
         try {
-            const response = await axios.get('http://localhost:3003/bebidas', {
+            const response = await axios.get(`${ApiUrl}/bebidas`, {
                 params: { limit: 3 }
             });
             setProdutos(response.data);
@@ -77,7 +75,7 @@ export const Produto = () =>{
     const listarBebidas = produtos.map((beb) => {
         return (
             <DivCard key={beb.dfid_bebida}>
-                <ImgBebidas src={`http://localhost:3003${beb.dfcaminho_imagem}`} alt="imagemBebida" />
+                <ImgBebidas src={`${ApiUrl}${beb.dfcaminho_imagem}`} alt="imagemBebida" />
                 <h3>{beb.dfnome_bebida}</h3>
                 <p>{beb.bebidaDisponivel}</p>
                 

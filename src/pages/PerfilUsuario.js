@@ -7,6 +7,7 @@ import { Header } from "../components/Header";
 import { DivSemConta } from "../styles/CardDeUsuarios";
 import { CrieUmaConta } from "../components/CrieUmaConta";
 import { Footer } from "../components/Footer";
+import { ApiUrl } from "../const/apiUrl";
 
 export const PerfilUsuario = () =>{
 
@@ -16,7 +17,7 @@ export const PerfilUsuario = () =>{
 
     const [id,role] = useGetToken(token);
     
-    const [protutos,setProdutos,isLoading,error] = useProdutos(`http://localhost:3003/clientes/buscarid/${id}`);
+    const [protutos,setProdutos,isLoading,error] = useProdutos(`${ApiUrl}/clientes/buscarid/${id}`);
 
     
     

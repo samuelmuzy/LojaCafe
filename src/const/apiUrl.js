@@ -1,0 +1,1 @@
+export const ApiUrl = 'lojacafe-back-production.up.railway.app';

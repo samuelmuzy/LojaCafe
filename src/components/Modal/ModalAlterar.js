@@ -4,6 +4,7 @@ import { ModalS,DivModal,InputModal, ButtonModal, DivButtons } from "../../style
 import { useState } from "react";
 import { InputFormulario } from "../Inputs/InputFormulario";
 import { buscarProdutos } from "../../service/VerificarProdutos";
+import { ApiUrl } from "../../const/apiUrl";
 
 export const ModalAlterar = (props) =>{
     
@@ -37,7 +38,7 @@ export const ModalAlterar = (props) =>{
         formData.append("file", form.file);
     }
 
-    axios.put(`http://localhost:3003/bebidas/${id}`, formData, {
+    axios.put(`${ApiUrl}/bebidas/${id}`, formData, {
         headers: {
             Authorization: token
         }

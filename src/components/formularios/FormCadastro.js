@@ -5,6 +5,7 @@ import { Formulario,P, TituloForm } from "../../styles/FormLogin";
 import { useCadastrar } from "../../hooks/useCadastrar";
 import { InputFormulario } from "../Inputs/InputFormulario";
 import { ButtonForm } from "../buttons/ButtonForm";
+import { ApiUrl } from "../../const/apiUrl";
 
 export const FormCadastro = () =>{
     
@@ -16,7 +17,7 @@ export const FormCadastro = () =>{
     });
     
     const {NavegarLogin} = useNavegar();
-    const [cadastrar, isLoading, error, sucesso] = useCadastrar("http://localhost:3003/clientes/cadastro");
+    const [cadastrar, isLoading, error, sucesso] = useCadastrar(`${ApiUrl}/clientes/cadastro`);
 
     const Cadastro = (event) => { 
         event.preventDefault();

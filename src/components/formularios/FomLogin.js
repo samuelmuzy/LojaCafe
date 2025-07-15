@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Loading } from "../Loading";
 import { ButtonForm } from "../buttons/ButtonForm";
 import { InputFormulario } from "../Inputs/InputFormulario";
+import { ApiUrl } from "../../const/apiUrl";
 
 export const FormLogin = () =>{
 
@@ -21,7 +22,7 @@ export const FormLogin = () =>{
     const autenticar = (event) =>{
         event.preventDefault();
         setIsLoading(true);
-        axios.post('http://localhost:3003/clientes/login', form)
+        axios.post(`${ApiUrl}/clientes/login`, form)
             .then((response) => {
                 localStorage.setItem("token", response.data.token); // Salva o token no local storage
                 navigate("/bebidas")

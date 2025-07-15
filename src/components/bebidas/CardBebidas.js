@@ -3,6 +3,7 @@ import imagemLixeira from '../../assets/excluir.png';
 import Button from '../buttons/Button';
 import { useGetToken } from "../../hooks/useGetToken";
 import { InputNumerico } from '../Inputs/InputNumerico';
+import { ApiUrl } from "../../const/apiUrl";
 
 export const CardBebidas = (props) => {
     const { nomeBebida, idBebida, bebidaDisponivel, preco, setNumero, caminhoImagem, carrinho, abrirModalAlterar, abrirModalExcluir } = props;
@@ -30,7 +31,7 @@ export const CardBebidas = (props) => {
                 <DivCard key={idBebida}>
                     {role === "ADMIN" && renderizarButtonsAdmin()}
 
-                    <ImgBebidas src={`http://localhost:3003${caminhoImagem}`} alt="imagemBebida" />
+                    <ImgBebidas src={`${ApiUrl}${caminhoImagem}`} alt="imagemBebida" />
                     <h3>{nomeBebida}</h3>
 
                     {role === "ADMIN" && <p>{bebidaDisponivel ? "Disponível" : "Indisponível"}</p>}

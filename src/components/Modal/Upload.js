@@ -3,6 +3,7 @@ import { useForm } from "../../hooks/useForm";
 import { ModalS,DivModal,InputModal, ButtonModal, DivButtons } from "../../styles/Modal";
 import { useState } from "react";
 import { InputFormulario } from "../Inputs/InputFormulario";
+import { ApiUrl } from "../../const/apiUrl";
 
 export const Upload = (props) =>{
     
@@ -38,7 +39,7 @@ export const Upload = (props) =>{
             formData.append("file", form.file);
         }
         
-        axios.post(`http://localhost:3003/bebidas`,formData , {
+        axios.post(`${ApiUrl}/bebidas`,formData , {
             headers:{
                 Authorization:token
             }
