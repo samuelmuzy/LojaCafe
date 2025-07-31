@@ -1,1 +1,1 @@
-export const ApiUrl = 'lojacafe-back-production.up.railway.app';
+export const ApiUrl = 'https://lojacafe-back-production.up.railway.app';

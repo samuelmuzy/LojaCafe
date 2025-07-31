@@ -1,62 +1,67 @@
-import { useProdutos } from "../hooks/useProdutos";
-import { Loading } from "../components/Loading";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { useGetToken } from "../hooks/useGetToken";
-import { useNavigate } from "react-router-dom";
-import { Perfil } from "../components/Perfil";
 import { Header } from "../components/Header";
-import { DivSemConta } from "../styles/CardDeUsuarios";
-import { CrieUmaConta } from "../components/CrieUmaConta";
 import { Footer } from "../components/Footer";
+import { Loading } from "../components/Loading";
+import { Perfil } from "../components/Perfil";
+import { CrieUmaConta } from "../components/CrieUmaConta";
 import { ApiUrl } from "../const/apiUrl";
+import { useNavigate } from "react-router-dom";
 
-export const PerfilUsuario = () =>{
 
-    const token = localStorage.getItem("token");
+export const PerfilUsuario = () => {
+  const token = localStorage.getItem("token");
+  const [id, role] = useGetToken(token);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const [perfilData, setPerfilData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-    const [id,role] = useGetToken(token);
-    
-    const [protutos,setProdutos,isLoading,error] = useProdutos(`${ApiUrl}/clientes/buscarid/${id}`);
+  const deslogar = () => {
+    localStorage.removeItem("token");
+    navigate('/')
+  };
 
-    
-    
-    const perfilUsuario = protutos.map((prod)=>{
-        return(
-            <Perfil
-                key={prod.dfid_cliente} 
-                nome={prod.dfnome_cliente}
-                email={prod.dfemail_cliente}
-                telefone={prod.dftelefone_cliente}
-                cargo={prod.dfuser_role}
-                deslogar={()=>deslogar()}
-            />
-        )
-    })
-
-    const deslogar = () =>{
-        localStorage.removeItem("token")
-        window.location.reload();
+  async function getUsuarios(){
+    setLoading(true);
+    try {
+      const response = await axios.get(`${ApiUrl}/clientes/buscarid/${id}`);
+      setPerfilData(response.data);
+    } catch (err) {
+      setError(err.response?.data || "Erro desconhecido");
+    } finally {
+      setLoading(false);
     }
+  };
 
+  useEffect(() => {
+    if (id) getUsuarios();
+  }, [id]);
 
-    return(
-        <>
-            <Header></Header>
-            
-            {isLoading &&
-                <Loading></Loading>
-            }
-            
-            {!isLoading && error && id && <p>{error}</p>}
+  if (loading) return <Loading />;
 
-            {!isLoading && protutos && role &&
-                    perfilUsuario
-            }
-            {!token &&
-                <CrieUmaConta/>
-            }
-            <Footer/>
-        </>
-    )
-}
+  return (
+    <>
+      <Header />
+
+      {error && <CrieUmaConta />}
+
+      {perfilData.length > 0 && role && (
+        perfilData.map((cliente) => (
+          <Perfil
+            key={cliente.dfid_cliente}
+            nome={cliente.dfnome_cliente}
+            email={cliente.dfemail_cliente}
+            telefone={cliente.dftelefone_cliente}
+            cargo={cliente.dfuser_role}
+            deslogar={deslogar}
+          />
+        ))
+      )}
+
+      <Footer />
+    </>
+  );
+};
