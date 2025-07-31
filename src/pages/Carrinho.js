@@ -19,7 +19,7 @@ export const Carrinho = () => {
 
     // Função para buscar os pedidos
     const procurarPedido = () => {
-        axios.get(`http://localhost:3003/pedidos/buscarpedido/${id}`,{
+        axios.get(`${ApiUrl}/pedidos/buscarpedido/${id}`,{
             headers:{
                 Authorization:token
             }
