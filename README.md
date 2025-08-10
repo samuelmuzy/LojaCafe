@@ -25,6 +25,10 @@ Instalação
 Clone este repositório para sua máquina local.
 Abra o diretório do projeto no VS Code.
 Execute o comando npm install para instalar todas as dependências do Front-End.
+
+## Teste o projeto
+loja-cafe.vercel.app
+
 Execução
 Clone o repositório do Backend:
 
