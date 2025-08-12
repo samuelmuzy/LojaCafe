@@ -75,7 +75,7 @@ export const Produto = () =>{
     const listarBebidas = produtos.map((beb) => {
         return (
             <DivCard key={beb.dfid_bebida}>
-                <ImgBebidas src={`${ApiUrl}${beb.dfcaminho_imagem}`} alt="imagemBebida" />
+                <ImgBebidas src={beb.dfcaminho_imagem} alt="imagemBebida" />
                 <h3>{beb.dfnome_bebida}</h3>
                 <p>{beb.bebidaDisponivel}</p>
                 

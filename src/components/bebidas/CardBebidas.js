@@ -31,7 +31,7 @@ export const CardBebidas = (props) => {
                 <DivCard key={idBebida}>
                     {role === "ADMIN" && renderizarButtonsAdmin()}
 
-                    <ImgBebidas src={`${ApiUrl}${caminhoImagem}`} alt="imagemBebida" />
+                    <ImgBebidas src={caminhoImagem} alt="imagemBebida" />
                     <h3>{nomeBebida}</h3>
 
                     {role === "ADMIN" && <p>{bebidaDisponivel ? "Disponível" : "Indisponível"}</p>}

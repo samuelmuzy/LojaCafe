@@ -6,7 +6,7 @@ import { ApiUrl } from '../../const/apiUrl';
 export const ItemCarrinho = ({ bebida, idPedido, deletarBebida }) => {
   return (
     <CardCarinho>
-      <ImgBebidaCarrinho src={`${ApiUrl}${bebida.caminhoImagem}`} />
+      <ImgBebidaCarrinho src={bebida.caminhoImagem} />
       <Gap>
         <h3>{bebida.nomeBebida}</h3>
         <ButtonDeletar Click={() => deletarBebida(bebida.productId, idPedido)}>Deletar</ButtonDeletar>

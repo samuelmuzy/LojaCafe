@@ -43,15 +43,53 @@ export const DivSemConta = styled.div `
     justify-content: center;
     width: 100%;
     height: 90vh;
-    gap: 30px;
+    gap: 16px;
+    background: linear-gradient(180deg, #fff 0%, #f8eedb 100%);
+    text-align: center;
 `
 
 export const ImagemConta = styled.img`
-    width: 15%;
+    width: 220px;
+    max-width: 60vw;
 `
 
 export const ButtonConta = styled.button`
-    width: 20%;
-    height: 40px;
+    min-width: 160px;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 10px;
+    border: 1px solid #482307;
+    background-color: #fff;
+    color: #482307;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+
+    &:hover {
+        background-color: #482307;
+        color: #fff;
+        box-shadow: 0 8px 15px rgba(81, 41, 10, 0.25);
+        transform: translateY(-2px);
+    }
+`
+
+export const TituloCTA = styled.h2`
+    margin-top: 8px;
+    margin-bottom: 4px;
+    font-size: 28px;
+    color: #482307;
+`
+
+export const SubtituloCTA = styled.p`
+    margin: 0 16px 12px;
+    max-width: 520px;
+    color: #5c3b1d;
+`
+
+export const BotoesCTA = styled.div`
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
 `
 

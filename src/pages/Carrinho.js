@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { CarrinhoCompras } from "../components/carrinhoCompras/CarrinhoCompras";
 import { CarrinhoVazio } from "../components/carrinhoCompras/CarrinhoVazio";
 import { Footer } from "../components/Footer";
+import { CrieUmaConta } from "../components/CrieUmaConta";
 import { ApiUrl } from "../const/apiUrl";
 
 export const Carrinho = () => {
@@ -74,7 +75,7 @@ export const Carrinho = () => {
             <Header />
             <ToastContainer />
 
-            {!id && <p>Faça uma conta</p>}
+            {!id && <CrieUmaConta />}
             
             {produtosQuantidades.length === 0 ? id && (
                 <CarrinhoVazio/>

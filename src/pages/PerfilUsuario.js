@@ -46,7 +46,7 @@ export const PerfilUsuario = () => {
     <>
       <Header />
 
-      {error && <CrieUmaConta />}
+      {perfilData.length === 0 && <CrieUmaConta />}
 
       {perfilData.length > 0 && role && (
         perfilData.map((cliente) => (

@@ -1,1 +1,1 @@
-export const ApiUrl = 'https://lojacafe-back-production.up.railway.app';
+export const ApiUrl = 'http://localhost:3003';
