@@ -2,12 +2,6 @@ import React from 'react';
 import {
   DivCarrinho,
   DivCardCarrinho,
-  DivPagamento,
-  CardCarinho,
-  ImgBebidaCarrinho,
-  Gap,
-  ButtonDeletar,
-  ButtonBebidas,
 } from '../../styles/Carrinho';
 import { ResumoPagamento } from './ResumoPagamento';
 import { ItemCarrinho } from './ItemCarrinho';

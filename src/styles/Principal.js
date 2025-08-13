@@ -16,6 +16,10 @@ export const Button = styled.button`
         color: white;
         background-color: #7f5736;
     }
+    @media (max-width: 756px) {
+        width: 50%;
+        margin-left: 0%;
+    } 
 `
 export const DivPrincipal = styled.div`
     display: flex;
@@ -26,17 +30,30 @@ export const DivPrincipal = styled.div`
     height: 85vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${ImagemP});
     background-size: cover;
+    @media (max-width: 756px) {
+        align-items: center;
+        text-align: center;
+    }    
 `;
 export const Texto = styled.p`
     font-size: 26px;
     width: 43%;
     margin-left: 8%;
     margin-top: 3%;
+    @media (max-width: 756px) {
+        width: 90%;
+        margin-left: 0%;
+        margin-top: 3%; 
+    } 
 
 `
 export const Titulo = styled.h1`
     margin-left: 8%;
     font-size: 40px;
+    @media (max-width: 756px) {
+        text-align: center;
+        margin-left: 0%
+    } 
 `
 export const DivImagemCafe = styled.div`
     display: flex;
@@ -48,12 +65,21 @@ export const DivImagemCafe = styled.div`
     background-blend-mode: overlay; /* Combina textura e gradiente */
     background-size: cover;
     padding: 2%;
+    @media (max-width: 756px) {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 4%;
+    } 
 `
 
-export const TextoPromo =  styled.p`
-font-size: 26px;
-width: 40%;
-margin-top: 3%;
+export const TextoPromo = styled.p`
+    font-size: 26px;
+    width: 40%;
+    margin-top: 3%;
+    @media (max-width: 756px) {
+        align-items: center;
+        width: 90%;
+    } 
 `
 
 export const DivCafe = styled.div`
@@ -67,6 +93,9 @@ export const DivCafe = styled.div`
     padding: 2%;
     gap: 10px;
     text-align: center;
+    @media (max-width: 756px) {
+        width: 80%;
+    } 
 
 `
 export const DivCafeMaior = styled.div`
@@ -74,6 +103,9 @@ export const DivCafeMaior = styled.div`
     align-items: center;
     justify-content: center;
     gap: 20px;
+    @media (max-width: 756px) {
+        flex-direction: column;
+    } 
     
 `
 export const DivBebidasCards = styled.div`
@@ -95,4 +127,7 @@ export const Cartao = styled.div`
 `
 export const ImagemPromo = styled.img`
     width: 30%;
+    @media (max-width: 756px) {
+        width: 45%;
+    } 
 `

@@ -6,7 +6,12 @@ export const DivBebidas = styled.div`
     justify-content: flex-start; /* Alinha os itens à esquerda */
     padding: 20px;
     width: 85%;
-    gap: 5px; /* Espaço consistente entre os cards */
+    gap: 5px;
+    @media (max-width: 756px) {
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+    }  /* Espaço consistente entre os cards */
 `;
 
 export const DivCard = styled.div`
@@ -83,6 +88,9 @@ export const PaginationButton = styled.button`
     margin: 1%;
     border: solid black 1px;
     width: 30px;
+    @media (max-width: 756px) {
+        margin-top: 10%;
+    } 
 `
 
 export const DivInputPesquisa = styled.div`
@@ -96,4 +104,7 @@ export const InputPesquisa = styled.input`
     width: 30%;
     height: 40px;
     border-radius: 1px;
+    @media (max-width: 756px) {
+        width: 50%;
+    } 
 `
